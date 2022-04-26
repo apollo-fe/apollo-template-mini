@@ -1,15 +1,26 @@
+/*
+ * @Author: Marshall
+ * @Date: 2022-04-26 17:35:59
+ * @LastEditors: Marshall
+ * @LastEditTime: 2022-04-26 22:06:16
+ * @Description: 
+ * @FilePath: /apollo-template-mini/config/index.js
+ */
+const path = require('path');
+
 const config = {
   projectName: 'taro-demo',
   date: '2022-4-26',
-  designWidth: 750,
+  designWidth: 375,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
-    828: 1.81 / 2
+    828: 1.81 / 2,
+    375: 2 / 1
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['taro-plugin-pinia'],
+  plugins: ['taro-plugin-pinia', '@tarojs/plugin-html'],
   defineConstants: {
   },
   copy: {
@@ -76,7 +87,15 @@ const config = {
         }
       }
     }
-  }
+  },
+  sass: {
+		resource: [
+			path.resolve(__dirname, '..', 'src/styles/custom_theme.scss')
+		],
+    // 默认京东 APP 10.0主题 > @import "@nutui/nutui-taro/dist/styles/variables.scss";
+    // 京东科技主题 > @import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";
+    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
+	},
 }
 
 module.exports = function (merge) {

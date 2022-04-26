@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import InstallNutui from "./plugins/nutui";
 
 import './app.scss'
 
@@ -10,5 +11,6 @@ const App = createApp({
 })
 
 App.use(createPinia())
+InstallNutui(App)
 
 export default App
